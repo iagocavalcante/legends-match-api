@@ -1,0 +1,38 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/login":
+    post:
+      summary: User sign in
+      tags:
+      - Users
+      consumes:
+      - application/json
+      - application/xml
+      parameters:
+      - auth: user
+        email: user
+        password: user
+        in: body
+        schema:
+          type: object
+          properties:
+            auth:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+          required:
+          - auth
+          - email
+          - password
+      responses:
+        '201':
+          description: token created
+        '422':
+          description: invalid request
