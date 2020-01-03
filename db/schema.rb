@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_12_27_033350) do
     t.string "name", null: false
     t.string "last_name", null: false
     t.string "email", null: false
-    t.string "password", null: false
+    t.string "password_digest", null: false
     t.date "birthday", null: false
     t.text "bio"
     t.jsonb "likes", default: "[]", null: false
