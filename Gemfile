@@ -16,6 +16,20 @@ gem 'puma', '~> 4.1'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'knock'
+
+gem 'active_model_serializers'
+
+gem 'jwt'
+
+gem 'rack-cors'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+
+gem 'rswag'
+
 gem 'pg'
 
 gem 'dotenv-rails'
