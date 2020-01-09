@@ -36,3 +36,26 @@ paths:
           description: token created
         '422':
           description: invalid request
+  "/api/v1/me":
+    post:
+      summary: User info
+      tags:
+      - Users
+      consumes:
+      - application/json
+      - application/xml
+      parameters:
+      - email: user
+        in: body
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+          required:
+          - email
+      responses:
+        '200':
+          description: users info returned
+        '422':
+          description: invalid request

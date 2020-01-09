@@ -16,11 +16,12 @@ gem 'puma', '~> 4.1'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'knock'
+gem 'devise'
+
+gem 'devise_token_auth'
+
 
 gem 'active_model_serializers'
-
-gem 'jwt'
 
 gem 'rack-cors'
 
