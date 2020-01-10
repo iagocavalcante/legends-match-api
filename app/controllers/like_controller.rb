@@ -2,27 +2,29 @@ class LikeController < ApplicationController
   before_action :authenticate_user!
 
   def like
-    liked_id = params[:id]
-    authenticated_id = current_user.id
-    
-    user_liked = User.find(liked_id)
-
-    if !user_liked
-      render json: { 'error': :not_found }
+    unless User.find(params[:id])
+      render json: { error: :not_found }
+      return
     end
 
-    if current_user.likes.empty?
-      current_user.likes = [user_liked.id]
-    else
-      current_user.likes.push(user_liked.id)
-    end
-    
-    current_user.save
-    
-    if user_liked.likes.include?(authenticated_id)
-      logger.debug "Match gostoso! #{authenticated_id} com #{user_liked.id}"
-    end
+    current_user.update(likes: current_user.likes + [params[:id].to_i])
 
-    render json: current_user
+    check_match
+  end
+
+  private
+
+  def check_match
+    if User.find(params[:id]).likes.include?(current_user.id)
+      ActionCable.server.broadcast(
+        "match_#{current_user.id}",
+        current_user
+      )
+
+      ActionCable.server.broadcast(
+        "match__#{params[:id]}",
+        User.find(params[:id])
+      )
+    end
   end
 end
