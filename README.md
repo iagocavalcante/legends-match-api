@@ -38,3 +38,11 @@ Quando chegarmos num mvp, vamos tentar usar tags para marcar a versão estável 
 - [ ] Ação de match: quando usuário executar o like, armazenar o id do usuário que recebeu o like no campo likes do usuário logado e verificar se o id do usuário logado se encontra na coluna de likes do usuário que recebeu like e informar em tempo real que aconteceu o match
 - [ ] Lista de matchs: exibir usuários que deram match e disponibilizar um canal de chat privado entre os usuários
 - [ ] Ação de editar perfil: permitir usuário logado de editar seus dados
+- [ ] Realizar integração com Steam - Só com assinatura
+- [ ] Realizar integração com Riot - De graça
+- [ ] Realizar integração com Twitch - Só com assinatura
+- [ ] Toogle exibir perfis de usuário independente dos interesses
+- [ ] Favoritar conversa com match
+- [ ] Exibir status online/offline 
+- [ ] Exibir status in game - Só com assinatura
+- [ ] Matchs ilimitados - Só com assinatura
