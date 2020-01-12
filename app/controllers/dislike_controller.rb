@@ -2,13 +2,13 @@ class DislikeController < ApplicationController
   before_action :authenticate_user!
 
   def dislike
-    unless User.find(params[:id])
-      render json: { error: :not_found }
-      return
+    dislike = DislikeService.new(current_user, params)
+    if dislike.valid?
+      dislike.execute
+
+      render json: {user: current_user, message: "Desliked with successfully"}, status: :ok
+    else
+      render json: {message: "Deu ruim"}, status: 422
     end
-
-    current_user.update(dislikes: current_user.dislikes + [params[:id].to_i])
-
-    render json: current_user
   end
 end
