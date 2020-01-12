@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2020_01_09_035658) do
     t.string "nickname", null: false
     t.date "birthday", null: false
     t.text "bio"
-    t.jsonb "likes", default: {}, null: false
-    t.jsonb "dislikes", default: {}, null: false
+    t.jsonb "likes", default: [], null: false
+    t.jsonb "dislikes", default: [], null: false
     t.jsonb "games", default: {}, null: false
     t.jsonb "skills", default: {}, null: false
     t.jsonb "preferences", default: {}, null: false
