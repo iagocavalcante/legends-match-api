@@ -28,5 +28,5 @@
 .idea
 .generators
 .rakeTasks
-config/database.yml
+/config/database.yml
 .ruby-version
