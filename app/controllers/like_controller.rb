@@ -6,7 +6,7 @@ class LikeController < ApplicationController
     if like.valid?
       like.execute
 
-      render json: {message: "Liked with successfully"}, status: :ok
+      render json: {user: current_user, message: "Liked with successfully"}, status: :ok
     else
       render json: {message: "Deu ruim"}, status: 422
     end
