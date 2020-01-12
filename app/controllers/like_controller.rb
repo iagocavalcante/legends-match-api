@@ -2,29 +2,13 @@ class LikeController < ApplicationController
   before_action :authenticate_user!
 
   def like
-    unless User.find(params[:id])
-      render json: { error: :not_found }
-      return
-    end
+    like = LikeService.new(current_user, params)
+    if like.valid?
+      like.execute
 
-    current_user.update(likes: current_user.likes + [params[:id].to_i])
-
-    check_match
-  end
-
-  private
-
-  def check_match
-    if User.find(params[:id]).likes.include?(current_user.id)
-      ActionCable.server.broadcast(
-        "match_#{current_user.id}",
-        current_user
-      )
-
-      ActionCable.server.broadcast(
-        "match__#{params[:id]}",
-        User.find(params[:id])
-      )
+      render json: {message: "Liked with successfully"}, status: :ok
+    else
+      render json: {message: "Deu ruim"}, status: 422
     end
   end
 end
