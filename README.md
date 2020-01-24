@@ -9,9 +9,9 @@ bundle install
 Feito isso é necessário ter o banco de dados postgres rodando, atualizar as credenciais do banco no .env e rodar os seguintes comandos:
 
 ```shell
-rake db:create
+rails db:create
 
-rake db:migrate
+rails db:migrate
 ```
 
 No projeto temos o swagger e ele é baseado nos testes do rspec que se encontram na pasta spec, após atualizar os testes e quiser gerar uma nova documentação da api, é só executar o comando: 
