@@ -20,13 +20,17 @@ gem 'devise'
 
 gem 'devise_token_auth'
 
-
 gem 'active_model_serializers'
 
 gem 'rack-cors'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
+  gem 'faker'
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 gem 'rswag'
@@ -44,9 +48,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+group :test do
+  gem 'database_cleaner'
 end
 
 group :development do
