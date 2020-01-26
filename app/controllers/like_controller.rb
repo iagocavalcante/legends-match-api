@@ -3,8 +3,10 @@ class LikeController < ApplicationController
 
   def like
     like = LikeService.new(current_user, params)
+    match = MatchService.new(current_user, params)
     if like.valid?
       like.execute
+      match.execute
 
       render json: {user: current_user, message: "Liked with successfully"}, status: :ok
     else
