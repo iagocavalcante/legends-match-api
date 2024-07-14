@@ -26,7 +26,7 @@ gem 'active_model_serializers'
 gem 'rack-cors'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 6.0'
 end
 
 gem 'rswag'
